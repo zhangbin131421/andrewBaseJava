@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--垂直滚动-->
+    <declare-styleable name="VerticalRollingLayout">
+        <!--滚动方向-->
+        <attr name="rolling_type" format="enum">
+            <enum name="top2bottom" value="0" />
+            <enum name="bottom2top" value="1" />
+        </attr>
+        <!--是否重复 default false-->
+        <!--<attr name="repeat" format="boolean" />-->
+        <!--滚动时间间隔  毫秒 millisecond  default 1000-->
+        <attr name="rolling_interval" format="integer" />
+        <!--动画时间-->
+        <attr name="rolling_duration" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="RecordAudioButton">
+        <attr name="record_text" format="string" />
+        <attr name="record_text_color" format="color" />
+        <attr name="max_record_duration" format="integer" />
+        <attr name="record_icon" format="reference" />
+        <attr name="record_bg" format="reference" />
+    </declare-styleable>
+
+
+    <declare-styleable name="JCameraView">
+        <attr name="iconSize" format="dimension" />
+        <attr name="iconMargin" format="dimension" />
+        <attr name="iconSrc" format="reference" />
+        <attr name="duration_max" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="DashLine">
+        <attr name="dotColor" format="color" />
+        <attr name="dotRadius" format="dimension" />
+        <attr name="dotGap" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="CircleProgressbar">
+        <attr name="radius" format="dimension" />
+        <attr name="strokeWidth" format="dimension" />
+        <attr name="ringColor" format="color" />
+        <attr name="textColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="CircularProgressView">
+        <attr name="backWidth" format="dimension" />    <!--背景圆环宽度-->
+        <attr name="progWidth" format="dimension" />    <!--进度圆环宽度-->
+        <attr name="backColor" format="color" />        <!--背景圆环颜色-->
+        <attr name="progColor" format="color" />        <!--进度圆环颜色-->
+        <attr name="progStartColor" format="color" />   <!--进度圆环开始颜色-->
+        <attr name="progFirstColor" format="color" />   <!--进度圆环结束颜色-->
+        <attr name="progress" format="integer" />       <!--圆环进度-->
+    </declare-styleable>
+
+    <declare-styleable name="EmojiFilterEditText">
+        <attr name="maxLength" format="integer" min="0" />
+    </declare-styleable>
+
+    <declare-styleable name="RoundImageView">
+        <attr name="img_radius" format="dimension" />
+        <attr name="left_top_radius" format="dimension" />
+        <attr name="right_top_radius" format="dimension" />
+        <attr name="right_bottom_radius" format="dimension" />
+        <attr name="left_bottom_radius" format="dimension" />
+    </declare-styleable>
+
+</resources>

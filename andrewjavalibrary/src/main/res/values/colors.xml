@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--dialog loading-->
+    <color name="kprogresshud_default_color">#b1000000</color>
+    <color name="kprogresshud_grey_color">#449E9E9E</color>
+    <color name="_ff59A6FD">#ff59A6FD</color>
+
+    <color name="date_picker_bg">#FFFFFF</color>
+    <color name="date_picker_divider">#11112233</color>
+    <color name="date_picker_text_light">#ff000000</color>
+    <color name="date_picker_text_dark">#333333</color>
+
+    <color name="theme_color">#009CFF</color>
+    <color name="half_white">#80FFFFFF</color>
+
+
+</resources>
