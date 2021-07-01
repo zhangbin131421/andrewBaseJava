@@ -2,9 +2,15 @@ package com.andrew.java.library.net;
 
 import androidx.lifecycle.LiveData;
 
+import com.andrew.java.library.utils.ToastUtils;
+
+import org.apache.http.conn.ConnectTimeoutException;
 import org.jetbrains.annotations.NotNull;
 
 import java.lang.reflect.Type;
+import java.net.ConnectException;
+import java.net.SocketTimeoutException;
+import java.net.UnknownHostException;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import retrofit2.Call;
@@ -52,7 +58,19 @@ public class LiveDataCallAdapter<T> implements CallAdapter<T, LiveData<T>> {
 
                         @Override
                         public void onFailure(Call<T> call, Throwable t) {
-                            postValue(null);
+//                            ToastUtils.show(t.getMessage());
+                            String message = "";
+                            if (t instanceof SocketTimeoutException || t instanceof ConnectTimeoutException) {
+                                message = "网络连接超时，请稍后再试。";
+                            } else if (t instanceof ConnectException) {
+                                message = "网络连接失败，请检查网络。";
+                            } else if (t instanceof UnknownHostException) {
+                                message = "网络连接失败，请检查网络。";
+                            } else {
+                                message = "网络连接失败。";
+                            }
+                            ToastUtils.show(message);
+//                            postValue(null);
                         }
                     });
                 }

@@ -34,7 +34,7 @@ public class MainActivity extends AndrewActivityDataBindingLoading<MainActivityB
             @Override
             public void onChanged(AndrewResponse<AppUpdate> appUpdateAndrewResponse) {
                 if (appUpdateAndrewResponse != null) {
-
+                    mLoadingVm.name.postValue(appUpdateAndrewResponse.getMsg());
                 }
             }
         });

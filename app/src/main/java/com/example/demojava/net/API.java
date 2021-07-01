@@ -18,7 +18,7 @@ public interface API {
     String URL_ROOT_TEST = "https://lwtest.yibaobt.com";//测试环境
     String URL_ROOT_PRD = "https://lw.eyongtech.com";//正式环境
 
-    String URL_ROOT = URL_ROOT_TEST;
+    String URL_ROOT = URL_ROOT_PRD;
 
     String API_URL = URL_ROOT + "/";
 

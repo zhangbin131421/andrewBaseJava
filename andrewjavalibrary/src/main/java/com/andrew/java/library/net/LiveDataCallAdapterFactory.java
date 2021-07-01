@@ -20,7 +20,8 @@ import retrofit2.Retrofit;
 public class LiveDataCallAdapterFactory extends CallAdapter.Factory {
     @Override
     public CallAdapter<?, ?> get(@NotNull Type returnType, @NotNull Annotation[] annotations, @NotNull Retrofit retrofit) {
-        if (!getRawType(returnType).isInstance(LiveData.class)) {
+        Class<?> rawType = getRawType(returnType);
+        if (rawType != LiveData.class) {
             throw new IllegalStateException("return type must be LiveData");
         }
         Type observableType = getParameterUpperBound(0, (ParameterizedType) returnType);

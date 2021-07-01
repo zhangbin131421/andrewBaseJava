@@ -10,7 +10,7 @@ import androidx.lifecycle.Observer;
  */
 public class AndrewLoadingViewModel extends AndrewViewModel {
     public MutableLiveData<Boolean> loading = new MutableLiveData<>();
-    public MutableLiveData<Boolean> refreshTrigger = new MutableLiveData<>(false);
+    public MutableLiveData<Boolean> refreshTrigger = new MutableLiveData<>();
 
     public void attachLoading(final MutableLiveData<Boolean> otherState) {
         loading.observeForever(new Observer<Boolean>() {

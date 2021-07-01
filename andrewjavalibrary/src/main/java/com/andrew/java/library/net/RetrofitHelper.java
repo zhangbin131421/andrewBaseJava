@@ -1,8 +1,9 @@
 package com.andrew.java.library.net;
 
-import com.andrew.java.library.net.interceptor.LoggingInterceptor;
 import com.andrew.java.library.net.interceptor.RequestInterceptor;
 import com.andrew.java.library.net.interceptor.ResponseInterceptor;
+import com.ihsanbal.logging.Level;
+import com.ihsanbal.logging.LoggingInterceptor;
 import com.orhanobut.logger.BuildConfig;
 
 import java.security.cert.X509Certificate;
@@ -12,9 +13,9 @@ import javax.net.ssl.X509TrustManager;
 
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
-import okhttp3.internal.platform.Platform;
-import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
+
+import static android.util.Log.VERBOSE;
 
 public class RetrofitHelper {
     private static RetrofitHelper instance;
@@ -39,12 +40,13 @@ public class RetrofitHelper {
     }
 
     private OkHttpClient getOkClient() {
-        LoggingInterceptor logging = new LoggingInterceptor();
-        logging.setDebug(BuildConfig.DEBUG);
-        logging.setLevel(HttpLoggingInterceptor.Level.BASIC);
-        logging.setType(Platform.INFO);
-        logging.setRequestTag("Request");
-        logging.setResponseTag("Response");
+        LoggingInterceptor LoggingInterceptor = new LoggingInterceptor.Builder()
+                .setLevel(Level.BASIC)
+                .log(VERBOSE)
+//                .addHeader("cityCode", "53")
+//                .addQueryParam("moonStatus", "crescent")
+                .build();
+
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
         if (BuildConfig.DEBUG) {
             builder.sslSocketFactory(SSLSocketClient.getSSLSocketFactory(), new
@@ -70,7 +72,8 @@ public class RetrofitHelper {
                 .writeTimeout(DEFAULT_READ_TIME_OUT, TimeUnit.MILLISECONDS)
 //                .followRedirects(false)
 //                .cache(new Cache(new File("sdcard/cache","okhttp"),1024))
-//                .addNetworkInterceptor(logging)
+//                .addNetworkInterceptor(loggingInterceptor)
+                .addInterceptor(LoggingInterceptor)
 //                .addInterceptor(new RequestInterceptor())
 //                .addInterceptor(new RespInterceptor())
         ;

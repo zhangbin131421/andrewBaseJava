@@ -3,6 +3,7 @@ package com.andrew.java.library.net.interceptor;
 import android.text.TextUtils;
 
 import com.andrew.java.library.utils.SpUtil;
+import com.orhanobut.logger.Logger;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -22,6 +23,8 @@ public class RequestInterceptor implements Interceptor {
     @NotNull
     @Override
     public Response intercept(@NotNull Chain chain) throws IOException {
+//        Logger.e("RequestInterceptor intercept( Chain chain)");
+
         Request originalRequest = chain.request();//获取原始请求
         Request.Builder requestBuilder = originalRequest.newBuilder() //建立新的请求
 //                    .header("Connection", "close")

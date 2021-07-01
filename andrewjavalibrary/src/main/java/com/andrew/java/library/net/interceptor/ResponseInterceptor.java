@@ -1,7 +1,5 @@
 package com.andrew.java.library.net.interceptor;
 
-import com.orhanobut.logger.Logger;
-
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
@@ -21,11 +19,8 @@ public class ResponseInterceptor implements Interceptor {
     public Response intercept(@NotNull Chain chain) throws IOException {
         Request request = chain.request();
         Response response = chain.proceed(request);
-        if (response.code() == 500) {
-//                isTokenExpired(response);
-        }
-        Logger.d("response.code()= " + response.code());
-        Logger.d("response.body()= " + response.body().string());
+//        Logger.e("response.code()= " + response.code());
+//        Logger.e("response.body()= " + response.body().string());//打开会导致bug   java.lang.IllegalStateException: closed
         return response;
     }
 }
