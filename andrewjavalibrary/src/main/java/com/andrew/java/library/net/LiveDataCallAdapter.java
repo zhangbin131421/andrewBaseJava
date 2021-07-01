@@ -58,6 +58,7 @@ public class LiveDataCallAdapter<T> implements CallAdapter<T, LiveData<T>> {
 
                         @Override
                         public void onFailure(Call<T> call, Throwable t) {
+                            postValue(null);
 //                            ToastUtils.show(t.getMessage());
                             String message = "";
                             if (t instanceof SocketTimeoutException || t instanceof ConnectTimeoutException) {
@@ -70,7 +71,6 @@ public class LiveDataCallAdapter<T> implements CallAdapter<T, LiveData<T>> {
                                 message = "网络连接失败。";
                             }
                             ToastUtils.show(message);
-//                            postValue(null);
                         }
                     });
                 }

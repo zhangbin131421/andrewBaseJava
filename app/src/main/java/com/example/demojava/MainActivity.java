@@ -25,7 +25,7 @@ public class MainActivity extends AndrewActivityDataBindingLoading<MainActivityB
     @Override
     protected void initView() {
         mLoadingVm.refreshTrigger.postValue(true);
-//        mLoadingVm.loading.postValue(true);
+        mLoadingVm.loading.postValue(true);
     }
 
     @Override
@@ -33,6 +33,7 @@ public class MainActivity extends AndrewActivityDataBindingLoading<MainActivityB
         mLoadingVm.app.observe(this, new Observer<AndrewResponse<AppUpdate>>() {
             @Override
             public void onChanged(AndrewResponse<AppUpdate> appUpdateAndrewResponse) {
+                mLoadingVm.loading.postValue(false);
                 if (appUpdateAndrewResponse != null) {
                     mLoadingVm.name.postValue(appUpdateAndrewResponse.getMsg());
                 }
