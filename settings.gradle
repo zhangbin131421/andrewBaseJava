@@ -1,3 +1,4 @@
 rootProject.name='Demo Java Application'
 include ':app'
 include ':andrewjavalibrary'
+include ':aspectj'

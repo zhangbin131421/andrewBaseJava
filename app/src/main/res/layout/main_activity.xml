@@ -23,6 +23,7 @@
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:onClick="jump"
             android:src="@mipmap/ic_launcher" />
 
         <TextView

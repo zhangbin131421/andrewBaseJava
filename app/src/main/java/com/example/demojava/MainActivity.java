@@ -1,5 +1,7 @@
 package com.example.demojava;
 
+import android.view.View;
+
 import androidx.lifecycle.Observer;
 
 import com.andrew.java.library.base.AndrewActivityDataBindingLoading;
@@ -40,5 +42,8 @@ public class MainActivity extends AndrewActivityDataBindingLoading<MainActivityB
             }
         });
 
+    }
+
+    public void jump(View view) {
     }
 }
