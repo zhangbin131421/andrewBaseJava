@@ -19,17 +19,17 @@ import com.andrew.java.library.vmodel.AndrewLoadingViewModel;
  * created on: 2021/6/29 14:25
  * description:
  */
-public abstract class AndrewFragmentDataBindingLoading<BV extends ViewDataBinding> extends AndrewFragmentDataBinding<BV> {
+public abstract class AndrewFragmentDataBindingLoading<BV extends ViewDataBinding, VM extends AndrewLoadingViewModel> extends AndrewFragmentDataBinding<BV> {
 
-    AndrewLoadingViewModel vm;
+    protected VM mLoadingVm;
     MutableLiveData<Boolean> loadingState = new MutableLiveData<>();
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         loadingState.observe(getViewLifecycleOwner(), new LoadingObserver(getContext()));
-        if (vm != null) {
-            vm.attachLoading(loadingState);
+        if (mLoadingVm != null) {
+            mLoadingVm.attachLoading(loadingState);
         }
 
     }
