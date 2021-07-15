@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.example.demojava.MainVM" />
+
+        <variable
+            name="test"
+            type="com.example.demojava.TestVM" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imgLog"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintStart_toStartOf="@id/cLayout"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:text="xxxx"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="22sp"
+            app:layout_constraintStart_toEndOf="@+id/imgLog"
+            app:layout_constraintTop_toTopOf="@+id/imgLog" />
+
+        <TextView
+            android:id="@+id/tvCompanyName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="yyyyyy"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="22sp"
+            app:layout_constraintStart_toEndOf="@+id/tvName"
+            app:layout_constraintTop_toTopOf="@+id/tvName" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgLog">
+
+            <TextView
+                android:id="@+id/tvLabel1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="登录"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvLabel2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0018"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/etvAccount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="请输入登录账户"
+                app:layout_constraintEnd_toEndOf="@id/tvLabel2"
+                app:layout_constraintStart_toStartOf="@+id/tvLabel1"
+                app:layout_constraintTop_toBottomOf="@+id/tvLabel1" />
+
+            <EditText
+                android:id="@+id/etvPassword"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:hint="请输入登录密码"
+                app:layout_constraintEnd_toEndOf="@id/etvAccount"
+                app:layout_constraintStart_toStartOf="@+id/etvAccount"
+                app:layout_constraintTop_toBottomOf="@+id/etvAccount" />
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="登录"
+                app:layout_constraintEnd_toEndOf="@id/etvPassword"
+                app:layout_constraintStart_toStartOf="@+id/etvPassword"
+                app:layout_constraintTop_toBottomOf="@+id/etvPassword" />
+
+            <TextView
+                android:id="@+id/tvClose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="关闭程序"
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toStartOf="@+id/line"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+
+            <View
+                android:id="@+id/line"
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@android:color/darker_gray"
+                app:layout_constraintBottom_toBottomOf="@+id/tvClose"
+                app:layout_constraintEnd_toStartOf="@+id/tvReboot"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/tvClose"
+                app:layout_constraintTop_toTopOf="@+id/tvClose" />
+
+            <TextView
+                android:id="@+id/tvReboot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="重新启动"
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/line"
+                app:layout_constraintTop_toTopOf="@+id/tvClose" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
