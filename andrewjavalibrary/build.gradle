@@ -72,7 +72,7 @@ dependencies {
 
 
     //    MultiDex.install(this);
-    implementation 'com.android.support:multidex:1.0.3'
+    api 'com.android.support:multidex:1.0.3'
     //logger
     api 'com.orhanobut:logger:2.2.0'
 
@@ -90,7 +90,7 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 
     //mmkv
-    implementation 'com.tencent:mmkv-static:1.1.0'
+    api 'com.tencent:mmkv-static:1.1.0'
 
     implementation('com.github.ihsanbal:LoggingInterceptor:3.1.0') {
         exclude group: 'org.json', module: 'json'
