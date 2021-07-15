@@ -1,8 +1,6 @@
 package com.andrew.java.library.base;
 
-import android.app.Application;
-
-import androidx.multidex.MultiDex;
+import androidx.multidex.MultiDexApplication;
 
 import com.tencent.mmkv.MMKV;
 
@@ -11,14 +9,14 @@ import com.tencent.mmkv.MMKV;
  * created on: 2021/6/29 11:26
  * description:
  */
-public class AndrewApplication extends Application {
+public class AndrewApplication extends MultiDexApplication {
     private static AndrewApplication instance;
 
     @Override
     public void onCreate() {
         super.onCreate();
         instance = this;
-        MultiDex.install(this);
+//        MultiDex.install(this);
         MMKV.initialize(this);// /data/user/0/com.szybkj.task/files/mmkv
     }
 
