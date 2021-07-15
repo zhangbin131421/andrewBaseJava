@@ -14,7 +14,7 @@ import java.util.List;
  * created on: 2021/6/29 15:06
  * description:
  */
-public class ViewPagerAdapter extends PagerAdapter {
+public class AndrewPagerAdapter extends PagerAdapter {
     private List<View> mList = new ArrayList<>();
 
     @Override

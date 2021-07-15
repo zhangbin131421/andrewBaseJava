@@ -43,20 +43,20 @@ public abstract class AndrewBaseAdapter<T> extends BaseAdapter {
         return null;
     }
 
-    void clear() {
+    public void clear() {
         arrayList.clear();
     }
 
-    void add(T t) {
+    public void add(T t) {
         arrayList.add(t);
     }
 
-    void addNotify(T t) {
+    public void addNotify(T t) {
         arrayList.add(t);
         notifyDataSetChanged();
     }
 
-    void addAll(List<T> list, boolean clearOldData) {
+    public void addAll(List<T> list, boolean clearOldData) {
         if (list != null) {
             if (clearOldData) {
                 arrayList.clear();
@@ -65,7 +65,7 @@ public abstract class AndrewBaseAdapter<T> extends BaseAdapter {
         }
     }
 
-    void addAllNotify(List<T> list, boolean clearOldData) {
+    public void addAllNotify(List<T> list, boolean clearOldData) {
         if (list != null) {
             if (clearOldData) {
                 arrayList.clear();
@@ -75,14 +75,14 @@ public abstract class AndrewBaseAdapter<T> extends BaseAdapter {
         }
     }
 
-    boolean addAllHead(List<T> list) {
+    public boolean addAllHead(List<T> list) {
         if (list != null) {
             return arrayList.addAll(0, list);
         }
         return false;
     }
 
-    void deleteNotify() {
+    public void deleteNotify() {
         if (clickPosition > -1 && clickPosition < getCount()) {
             arrayList.remove(clickPosition);
             clickPosition = -1;

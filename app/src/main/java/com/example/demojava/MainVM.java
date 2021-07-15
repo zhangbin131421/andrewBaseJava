@@ -20,7 +20,7 @@ import okhttp3.RequestBody;
  */
 public class MainVM extends BaseViewModel {
     public MutableLiveData<String> name = new MutableLiveData<>("MainVM");
-    LiveData<AndrewResponse<AppUpdate>> app = Transformations.switchMap(refreshTrigger, new Function<Boolean, LiveData<AndrewResponse<AppUpdate>>>() {
+    public LiveData<AndrewResponse<AppUpdate>> app = Transformations.switchMap(refreshTrigger, new Function<Boolean, LiveData<AndrewResponse<AppUpdate>>>() {
         @Override
         public LiveData<AndrewResponse<AppUpdate>> apply(Boolean input) {
             return api.getNewAppVersion(RequestBody.create(MediaType.parse("application/json; charset=utf-8"), ""));

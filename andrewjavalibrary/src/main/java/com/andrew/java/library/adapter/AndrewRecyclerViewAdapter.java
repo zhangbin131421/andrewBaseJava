@@ -20,11 +20,11 @@ import java.util.List;
  * created on: 2021/6/29 14:46
  * description:
  */
-public abstract class AndrewRecyclerViewAdapter<T> extends RecyclerView.Adapter<BaseRecyclerViewHolder> {
+public abstract class AndrewRecyclerViewAdapter<T> extends RecyclerView.Adapter<AndrewRecyclerViewHolder> {
 
-    abstract int layoutId();
+    protected abstract int layoutId();
 
-    protected abstract void mOnBindViewHolder(BaseRecyclerViewHolder holder, int position, T t);
+    protected abstract void mOnBindViewHolder(AndrewRecyclerViewHolder holder, int position, T t);
 
     private Context mContext;
 
@@ -40,12 +40,12 @@ public abstract class AndrewRecyclerViewAdapter<T> extends RecyclerView.Adapter<
 
     @NonNull
     @Override
-    public BaseRecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new BaseRecyclerViewHolder(DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), layoutId(), parent, false));
+    public AndrewRecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new AndrewRecyclerViewHolder(DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), layoutId(), parent, false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull BaseRecyclerViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull AndrewRecyclerViewHolder holder, final int position) {
         final T t = arrayList.get(position);
         if (mItemClickListener != null) {
             holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -83,30 +83,30 @@ public abstract class AndrewRecyclerViewAdapter<T> extends RecyclerView.Adapter<
         return position;
     }
 
-    T getItem(int position) {
+    public T getItem(int position) {
         return arrayList.get(position);
     }
 
-    void clear() {
+    public void clear() {
         arrayList.clear();
     }
 
-    void clearNotify() {
+    public void clearNotify() {
         arrayList.clear();
         notifyDataSetChanged();
 
     }
 
-    void add(T t) {
+    public void add(T t) {
         arrayList.add(t);
     }
 
-    void addNotify(T t) {
+    public void addNotify(T t) {
         arrayList.add(t);
         notifyDataSetChanged();
     }
 
-    void addAll(List<T> list, boolean clearOldData) {
+    public void addAll(List<T> list, boolean clearOldData) {
         if (list != null) {
             if (clearOldData) {
                 arrayList.clear();
@@ -115,7 +115,7 @@ public abstract class AndrewRecyclerViewAdapter<T> extends RecyclerView.Adapter<
         }
     }
 
-    void addAllNotify(List<T> list, boolean clearOldData) {
+    public void addAllNotify(List<T> list, boolean clearOldData) {
         if (list != null) {
             if (clearOldData) {
                 arrayList.clear();
@@ -125,14 +125,14 @@ public abstract class AndrewRecyclerViewAdapter<T> extends RecyclerView.Adapter<
         }
     }
 
-    boolean addAllHead(List<T> list) {
+    public boolean addAllHead(List<T> list) {
         if (list != null) {
             return arrayList.addAll(0, list);
         }
         return false;
     }
 
-    void deleteNotify() {
+    public void deleteNotify() {
         if (clickPosition > -1 && clickPosition < getItemCount()) {
             arrayList.remove(clickPosition);
             clickPosition = -1;
@@ -142,11 +142,11 @@ public abstract class AndrewRecyclerViewAdapter<T> extends RecyclerView.Adapter<
         }
     }
 
-    void updatePosition(int position, T t) {
+    public void updatePosition(int position, T t) {
         arrayList.set(position, t);
     }
 
-    void updatePositionNotify(int position, T t) {
+    public void updatePositionNotify(int position, T t) {
         arrayList.set(position, t);
         notifyDataSetChanged();
     }

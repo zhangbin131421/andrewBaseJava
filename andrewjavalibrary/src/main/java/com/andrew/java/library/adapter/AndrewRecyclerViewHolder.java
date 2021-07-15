@@ -11,14 +11,14 @@ import androidx.recyclerview.widget.RecyclerView;
  * created on: 2021/6/29 14:43
  * description:
  */
-public class BaseRecyclerViewHolder extends RecyclerView.ViewHolder {
-    ViewDataBinding mBinding;
+public class AndrewRecyclerViewHolder extends RecyclerView.ViewHolder {
+    public ViewDataBinding mBinding;
 
-    public BaseRecyclerViewHolder(@NonNull View itemView) {
+    public AndrewRecyclerViewHolder(@NonNull View itemView) {
         super(itemView);
     }
 
-    public BaseRecyclerViewHolder(@NonNull ViewDataBinding binding) {
+    public AndrewRecyclerViewHolder(@NonNull ViewDataBinding binding) {
         super(binding.getRoot());
         mBinding = binding;
     }
