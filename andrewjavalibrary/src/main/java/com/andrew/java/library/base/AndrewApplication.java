@@ -1,6 +1,6 @@
 package com.andrew.java.library.base;
 
-import androidx.multidex.MultiDexApplication;
+import android.app.Application;
 
 import com.tencent.mmkv.MMKV;
 
@@ -9,7 +9,7 @@ import com.tencent.mmkv.MMKV;
  * created on: 2021/6/29 11:26
  * description:
  */
-public class AndrewApplication extends MultiDexApplication {
+public class AndrewApplication extends Application {
     private static AndrewApplication instance;
 
     @Override

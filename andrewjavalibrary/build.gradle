@@ -9,7 +9,7 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-        multiDexEnabled true
+//        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
     }
@@ -70,9 +70,9 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
-
-    //    MultiDex.install(this);
-    api 'com.android.support:multidex:1.0.3'
+//        multiDexEnabled true
+//        MultiDex.install(this);
+//    api 'com.android.support:multidex:1.0.3'
     //logger
     api 'com.orhanobut:logger:2.2.0'
 
@@ -90,7 +90,7 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 
     //mmkv
-    api 'com.tencent:mmkv-static:1.1.0'
+    implementation 'com.tencent:mmkv-static:1.1.0'
 
     implementation('com.github.ihsanbal:LoggingInterceptor:3.1.0') {
         exclude group: 'org.json', module: 'json'
