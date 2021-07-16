@@ -47,88 +47,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="111111"
-        app:layout_constraintBottom_toBottomOf="@+id/etv1"
-        app:layout_constraintEnd_toStartOf="@+id/etv1"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/etv1" />
+        app:layout_constraintBottom_toTopOf="@+id/etv1" />
 
     <EditText
         android:id="@+id/etv1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
         android:background="@drawable/selector1"
         android:hint="111111111"
         android:padding="10dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tvLabel1"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/tvLabel1"
-        app:layout_constraintTop_toBottomOf="@+id/line" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
-    <TextView
-        android:id="@+id/tvLabel2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="2"
-        app:layout_constraintBottom_toBottomOf="@+id/etv2"
-        app:layout_constraintStart_toStartOf="@id/tvLabel1"
-        app:layout_constraintTop_toTopOf="@+id/etv2" />
-
-    <EditText
-        android:id="@+id/etv2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/selector1"
-        android:hint="222222222222"
-        android:padding="10dp"
-        app:layout_constraintStart_toStartOf="@+id/etv1"
-        app:layout_constraintTop_toBottomOf="@+id/etv1" />
-
-
-    <TextView
-        android:id="@+id/tvLabel3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="3"
-        app:layout_constraintBottom_toBottomOf="@+id/etv3"
-        app:layout_constraintStart_toStartOf="@id/tvLabel2"
-        app:layout_constraintTop_toTopOf="@+id/etv3" />
-
-    <EditText
-        android:id="@+id/etv3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/selector1"
-        android:hint="33333"
-        android:padding="10dp"
-        app:layout_constraintStart_toStartOf="@+id/etv2"
-        app:layout_constraintTop_toBottomOf="@+id/etv2" />
-
-
-    <TextView
-        android:id="@+id/tvLabel4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="4"
-        app:layout_constraintBottom_toBottomOf="@+id/etv4"
-        app:layout_constraintStart_toStartOf="@id/tvLabel3"
-        app:layout_constraintTop_toTopOf="@+id/etv4" />
-
-    <EditText
-        android:id="@+id/etv4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/selector1"
-        android:hint="33333"
-        android:padding="10dp"
-        app:layout_constraintStart_toStartOf="@+id/etv3"
-        app:layout_constraintTop_toBottomOf="@+id/etv3" />
 
 
     <Button
