@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MainFragment"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/line1"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/_999999"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+    <ImageView
+        android:id="@+id/imgLog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line1" />
+
+    <TextView
+        android:id="@+id/tvAppName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MainFragment"
+        app:layout_constraintStart_toEndOf="@+id/imgLog"
+        app:layout_constraintTop_toTopOf="@+id/imgLog" />
+
+    <TextView
+        android:id="@+id/tvAppVersion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MainFragment"
+        app:layout_constraintStart_toStartOf="@+id/tvAppName"
+        app:layout_constraintTop_toBottomOf="@+id/tvAppName" />
+
+    <TextView
+        android:id="@+id/tvCopyRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MainFragment"
+        app:layout_constraintStart_toStartOf="@+id/tvAppVersion"
+        app:layout_constraintTop_toBottomOf="@+id/tvAppVersion" />
+
+    <View
+        android:id="@+id/line2"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/_999999"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgLog" />
+
+    <TextView
+        android:id="@+id/tvLabel1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="MainFragment"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line2" />
+
+    <CheckBox
+        android:id="@+id/checkboxAuto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:text="@string/app_name"
+        app:layout_constraintBottom_toBottomOf="@+id/tvLabel1"
+        app:layout_constraintStart_toEndOf="@+id/tvLabel1"
+        app:layout_constraintTop_toTopOf="@+id/tvLabel1" />
+
+    <TextView
+        android:id="@+id/tvPrinterSetup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="MainFragment"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvLabel1" />
+
+    <TextView
+        android:id="@+id/tvSPRT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MainFragment"
+        app:layout_constraintStart_toStartOf="@+id/checkboxAuto"
+        app:layout_constraintTop_toTopOf="@+id/tvPrinterSetup" />
+
+    <TextView
+        android:id="@+id/tvSPRTStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MainFragment"
+        app:layout_constraintStart_toStartOf="@+id/tvSPRT"
+        app:layout_constraintTop_toBottomOf="@+id/tvSPRT" />
+
+
+    <View
+        android:id="@+id/line3"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/_999999"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tvSPRTStatus"
+        app:layout_constraintTop_toBottomOf="@+id/tvSPRTStatus" />
+
+    <TextView
+        android:id="@+id/tvLabelPrinter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MainFragment"
+        app:layout_constraintStart_toStartOf="@+id/line3"
+        app:layout_constraintTop_toTopOf="@+id/line3" />
+
+    <TextView
+        android:id="@+id/tvLabelPrinterStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MainFragment"
+        app:layout_constraintStart_toStartOf="@+id/tvLabelPrinter"
+        app:layout_constraintTop_toBottomOf="@+id/tvLabelPrinter" />
+
+
+    <View
+        android:id="@+id/line4"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/_999999"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tvLabelPrinterStatus"
+        app:layout_constraintTop_toBottomOf="@+id/tvLabelPrinterStatus" />
+
+    <CheckBox
+        android:id="@+id/checkbox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        app:layout_constraintStart_toStartOf="@+id/line4"
+        app:layout_constraintTop_toBottomOf="@+id/line4" />
+
+    <CheckBox
+        android:id="@+id/checkbox2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:text="@string/app_name"
+        app:layout_constraintStart_toEndOf="@+id/checkbox1"
+        app:layout_constraintTop_toTopOf="@+id/checkbox1" />
+
+    <CheckBox
+        android:id="@+id/checkbox3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:text="@string/app_name"
+        app:layout_constraintStart_toEndOf="@+id/checkbox2"
+        app:layout_constraintTop_toTopOf="@+id/checkbox2" />
+
+    <TextView
+        android:id="@+id/tvCheckHint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MainFragment"
+        app:layout_constraintStart_toStartOf="@+id/checkbox1"
+        app:layout_constraintTop_toBottomOf="@+id/checkbox1" />
+</androidx.constraintlayout.widget.ConstraintLayout>

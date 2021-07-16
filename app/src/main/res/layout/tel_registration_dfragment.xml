@@ -69,14 +69,14 @@
         android:id="@+id/btnCancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:layout_marginRight="50dp"
         android:text="取消"
         app:layout_constraintEnd_toStartOf="@+id/btnOK"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etv4" />
+        app:layout_constraintTop_toBottomOf="@+id/etv1" />
 
     <Button
         android:id="@+id/btnOK"
