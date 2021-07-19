@@ -3,5 +3,20 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="_FF5121">#FF5121</color>
+    <color name="_FF3B30">#FF3B30</color>
+    <color name="_FFDAD0">#FFDAD0</color>
+    <color name="_02C160">#02C160</color>
+    <color name="_586C94">#586C94</color>
+    <color name="_212121">#212121</color>
+    <color name="_666666">#666666</color>
     <color name="_999999">#999999</color>
+    <color name="_BBBBBB">#BBBBBB</color>
+    <color name="_EEEEEE">#EEEEEE</color>
+    <color name="_F6F6F6">#F6F6F6</color>
+    <color name="_40000000">#40000000</color>
+    <color name="_FF9600">#FF9600</color>
+    <color name="_2A263A">#2A263A</color>
 </resources>

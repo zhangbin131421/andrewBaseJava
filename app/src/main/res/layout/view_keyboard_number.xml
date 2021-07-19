@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/_EEEEEE"
+    android:padding="@dimen/dp_12">
+
+    <TextView
+        android:id="@+id/tvNumber7"
+        style="@style/TextStyleNumberItem"
+        android:text="7"
+        app:layout_constraintBottom_toTopOf="@+id/tvNumber4"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toStartOf="@+id/tvNumber8"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvNumber8"
+        style="@style/TextStyleNumberItem"
+        android:layout_marginLeft="@dimen/dp_4"
+        android:layout_marginRight="@dimen/dp_4"
+        android:text="8"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toStartOf="@+id/tvNumber9"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvNumber7"
+        app:layout_constraintTop_toTopOf="@+id/tvNumber7" />
+
+    <TextView
+        android:id="@+id/tvNumber9"
+        style="@style/TextStyleNumberItem"
+        android:text="9"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvNumber8"
+        app:layout_constraintTop_toTopOf="@+id/tvNumber7" />
+
+    <TextView
+        android:id="@+id/tvNumber4"
+        style="@style/TextStyleNumberItem"
+        android:text="4"
+        app:layout_constraintBottom_toTopOf="@+id/tvNumber1"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="@+id/tvNumber7"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/tvNumber7"
+        app:layout_constraintTop_toBottomOf="@+id/tvNumber7" />
+
+    <TextView
+        android:id="@+id/tvNumber5"
+        style="@style/TextStyleNumberItem"
+        android:text="5"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="@+id/tvNumber8"
+        app:layout_constraintStart_toStartOf="@+id/tvNumber8"
+        app:layout_constraintTop_toTopOf="@+id/tvNumber4" />
+
+    <TextView
+        android:id="@+id/tvNumber6"
+        style="@style/TextStyleNumberItem"
+        android:text="6"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="@+id/tvNumber9"
+        app:layout_constraintStart_toStartOf="@+id/tvNumber9"
+        app:layout_constraintTop_toTopOf="@+id/tvNumber4" />
+
+    <TextView
+        android:id="@+id/tvNumber1"
+        style="@style/TextStyleNumberItem"
+        android:text="1"
+        app:layout_constraintBottom_toTopOf="@+id/tvNumberDot"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="@+id/tvNumber7"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/tvNumber7"
+        app:layout_constraintTop_toBottomOf="@+id/tvNumber4" />
+
+    <TextView
+        android:id="@+id/tvNumber2"
+        style="@style/TextStyleNumberItem"
+        android:text="2"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="@+id/tvNumber8"
+        app:layout_constraintStart_toStartOf="@+id/tvNumber8"
+        app:layout_constraintTop_toTopOf="@+id/tvNumber1" />
+
+    <TextView
+        android:id="@+id/tvNumber3"
+        style="@style/TextStyleNumberItem"
+        android:text="3"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="@+id/tvNumber9"
+        app:layout_constraintStart_toStartOf="@+id/tvNumber9"
+        app:layout_constraintTop_toTopOf="@+id/tvNumber1" />
+
+    <TextView
+        android:id="@+id/tvNumberDot"
+        style="@style/TextStyleNumberItem"
+        android:text="."
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="@+id/tvNumber7"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/tvNumber7"
+        app:layout_constraintTop_toBottomOf="@+id/tvNumber1" />
+
+    <TextView
+        android:id="@+id/tvNumber0"
+        style="@style/TextStyleNumberItem"
+        android:text="0"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="@+id/tvNumber8"
+        app:layout_constraintStart_toStartOf="@+id/tvNumber8"
+        app:layout_constraintTop_toTopOf="@+id/tvNumberDot" />
+
+    <TextView
+        android:id="@+id/tvNumberDel"
+        style="@style/TextStyleNumberItem"
+        android:text="del"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="@+id/tvNumber9"
+        app:layout_constraintStart_toStartOf="@+id/tvNumber9"
+        app:layout_constraintTop_toTopOf="@+id/tvNumberDot" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
