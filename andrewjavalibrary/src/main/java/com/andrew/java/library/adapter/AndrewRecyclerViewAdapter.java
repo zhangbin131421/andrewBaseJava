@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -89,14 +90,25 @@ public abstract class AndrewRecyclerViewAdapter<T> extends RecyclerView.Adapter<
         return arrayList.get(position);
     }
 
+    public void mNotifyDataSetChanged() {
+        notifyDataSetChanged();
+    }
+
+    public void mNotifyItemChanged(int position) {
+        notifyItemChanged(position);
+    }
+
+    public void mNotifyItemChanged(int position, @Nullable Object payload) {
+        notifyItemChanged(position, payload);
+    }
+
     public void clear() {
         arrayList.clear();
     }
 
     public void clearNotify() {
         arrayList.clear();
-        notifyDataSetChanged();
-
+        mNotifyDataSetChanged();
     }
 
     public void add(T t) {
@@ -105,7 +117,7 @@ public abstract class AndrewRecyclerViewAdapter<T> extends RecyclerView.Adapter<
 
     public void addNotify(T t) {
         add(t);
-        notifyDataSetChanged();
+        mNotifyDataSetChanged();
     }
 
     public void addHead(T t) {
@@ -114,7 +126,7 @@ public abstract class AndrewRecyclerViewAdapter<T> extends RecyclerView.Adapter<
 
     public void addHeadNotify(T t) {
         addHead(t);
-        notifyDataSetChanged();
+        mNotifyDataSetChanged();
     }
 
     public void addAll(List<T> list, boolean clearOldData) {
@@ -128,8 +140,7 @@ public abstract class AndrewRecyclerViewAdapter<T> extends RecyclerView.Adapter<
 
     public void addAllNotify(List<T> list, boolean clearOldData) {
         addAll(list, clearOldData);
-        notifyDataSetChanged();
-
+        mNotifyDataSetChanged();
     }
 
     public boolean addAllHead(List<T> list) {
@@ -143,7 +154,7 @@ public abstract class AndrewRecyclerViewAdapter<T> extends RecyclerView.Adapter<
         if (clickPosition > -1 && clickPosition < getItemCount()) {
             arrayList.remove(clickPosition);
             clickPosition = -1;
-            notifyDataSetChanged();
+            mNotifyDataSetChanged();
             return true;
         } else {
             Logger.e("删除失败clickPosition=" + clickPosition);
@@ -157,7 +168,7 @@ public abstract class AndrewRecyclerViewAdapter<T> extends RecyclerView.Adapter<
 
     public void updatePositionNotify(int position, T t) {
         arrayList.set(position, t);
-        notifyDataSetChanged();
+        mNotifyDataSetChanged();
     }
 
     public void setItemClickListener(MyOnClickListener<T> mItemClickListener) {
