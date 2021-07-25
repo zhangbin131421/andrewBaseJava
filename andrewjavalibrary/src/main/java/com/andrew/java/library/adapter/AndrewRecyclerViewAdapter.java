@@ -5,20 +5,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.annotation.NonNull;
-import androidx.databinding.DataBindingUtil;
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.andrew.java.library.listener.MyOnClickListener;
 import com.orhanobut.logger.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.widget.RecyclerView;
+
 /**
  * author: zhangbin
  * created on: 2021/6/29 14:46
  * description:
+ *
  * @author Andrew
  */
 public abstract class AndrewRecyclerViewAdapter<T> extends RecyclerView.Adapter<AndrewRecyclerViewHolder> {
@@ -27,13 +28,13 @@ public abstract class AndrewRecyclerViewAdapter<T> extends RecyclerView.Adapter<
 
     protected abstract void mOnBindViewHolder(AndrewRecyclerViewHolder holder, int position, T t);
 
-    private Context mContext;
+    protected Context mContext;
 
-    private List<T> arrayList = new ArrayList<>();
+    protected List<T> arrayList = new ArrayList<>();
     protected int clickPosition = -1;
 
     private MyOnClickListener<T> mItemClickListener;
-    private  MyOnClickListener<T> mItemLongClickListener;
+    private MyOnClickListener<T> mItemLongClickListener;
 
     public AndrewRecyclerViewAdapter(Context context) {
         mContext = context;
@@ -103,7 +104,16 @@ public abstract class AndrewRecyclerViewAdapter<T> extends RecyclerView.Adapter<
     }
 
     public void addNotify(T t) {
-        arrayList.add(t);
+        add(t);
+        notifyDataSetChanged();
+    }
+
+    public void addHead(T t) {
+        arrayList.add(0, t);
+    }
+
+    public void addHeadNotify(T t) {
+        addHead(t);
         notifyDataSetChanged();
     }
 
@@ -117,13 +127,9 @@ public abstract class AndrewRecyclerViewAdapter<T> extends RecyclerView.Adapter<
     }
 
     public void addAllNotify(List<T> list, boolean clearOldData) {
-        if (list != null) {
-            if (clearOldData) {
-                arrayList.clear();
-            }
-            arrayList.addAll(list);
-            notifyDataSetChanged();
-        }
+        addAll(list, clearOldData);
+        notifyDataSetChanged();
+
     }
 
     public boolean addAllHead(List<T> list) {
