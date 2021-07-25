@@ -139,13 +139,15 @@ public abstract class AndrewRecyclerViewAdapter<T> extends RecyclerView.Adapter<
         return false;
     }
 
-    public void deleteNotify() {
+    public boolean deleteNotify() {
         if (clickPosition > -1 && clickPosition < getItemCount()) {
             arrayList.remove(clickPosition);
             clickPosition = -1;
             notifyDataSetChanged();
+            return true;
         } else {
             Logger.e("删除失败clickPosition=" + clickPosition);
+            return false;
         }
     }
 

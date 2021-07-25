@@ -52,7 +52,16 @@ public abstract class AndrewBaseAdapter<T> extends BaseAdapter {
     }
 
     public void addNotify(T t) {
-        arrayList.add(t);
+        add(t);
+        notifyDataSetChanged();
+    }
+
+    public void addHead(T t) {
+        arrayList.add(0, t);
+    }
+
+    public void addHeadNotify(T t) {
+        addHead(t);
         notifyDataSetChanged();
     }
 
@@ -66,13 +75,9 @@ public abstract class AndrewBaseAdapter<T> extends BaseAdapter {
     }
 
     public void addAllNotify(List<T> list, boolean clearOldData) {
-        if (list != null) {
-            if (clearOldData) {
-                arrayList.clear();
-            }
-            arrayList.addAll(list);
-            notifyDataSetChanged();
-        }
+        addAll(list, clearOldData);
+        notifyDataSetChanged();
+
     }
 
     public boolean addAllHead(List<T> list) {
@@ -82,13 +87,15 @@ public abstract class AndrewBaseAdapter<T> extends BaseAdapter {
         return false;
     }
 
-    public void deleteNotify() {
+    public boolean deleteNotify() {
         if (clickPosition > -1 && clickPosition < getCount()) {
             arrayList.remove(clickPosition);
             clickPosition = -1;
             notifyDataSetChanged();
+            return true;
         } else {
             Logger.e("删除失败clickPosition=" + clickPosition);
+            return false;
         }
     }
 
