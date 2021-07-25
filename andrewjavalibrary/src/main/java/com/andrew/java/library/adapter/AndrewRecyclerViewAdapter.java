@@ -19,6 +19,7 @@ import java.util.List;
  * author: zhangbin
  * created on: 2021/6/29 14:46
  * description:
+ * @author Andrew
  */
 public abstract class AndrewRecyclerViewAdapter<T> extends RecyclerView.Adapter<AndrewRecyclerViewHolder> {
 
@@ -31,8 +32,8 @@ public abstract class AndrewRecyclerViewAdapter<T> extends RecyclerView.Adapter<
     private List<T> arrayList = new ArrayList<>();
     protected int clickPosition = -1;
 
-    MyOnClickListener<T> mItemClickListener;
-    MyOnClickListener<T> mItemLongClickListener;
+    private MyOnClickListener<T> mItemClickListener;
+    private  MyOnClickListener<T> mItemLongClickListener;
 
     public AndrewRecyclerViewAdapter(Context context) {
         mContext = context;
@@ -149,5 +150,13 @@ public abstract class AndrewRecyclerViewAdapter<T> extends RecyclerView.Adapter<
     public void updatePositionNotify(int position, T t) {
         arrayList.set(position, t);
         notifyDataSetChanged();
+    }
+
+    public void setItemClickListener(MyOnClickListener<T> mItemClickListener) {
+        this.mItemClickListener = mItemClickListener;
+    }
+
+    public void setItemLongClickListener(MyOnClickListener<T> mItemLongClickListener) {
+        this.mItemLongClickListener = mItemLongClickListener;
     }
 }
