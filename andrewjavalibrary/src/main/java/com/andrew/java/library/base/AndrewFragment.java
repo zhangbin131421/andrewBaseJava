@@ -131,12 +131,12 @@ public abstract class AndrewFragment extends Fragment {
         }
     }
 
-    @Override
-    public void startActivity(Intent intent) {
-        if (AppUtils.checkIntentActivity(intent)) {
-            super.startActivity(intent);
-        }
-    }
+//    @Override
+//    public void startActivity(Intent intent) {
+//        if (AppUtils.checkIntentActivity(intent)) {
+//            super.startActivity(intent);
+//        }
+//    }
 
     @Override
     public void startActivityForResult(Intent intent, int requestCode) {
