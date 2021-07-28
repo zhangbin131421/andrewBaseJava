@@ -95,4 +95,7 @@ dependencies {
     implementation('com.github.ihsanbal:LoggingInterceptor:3.1.0') {
         exclude group: 'org.json', module: 'json'
     }
+
+    implementation 'commons-io:commons-io:2.11.0'
+
 }
