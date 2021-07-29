@@ -10,6 +10,7 @@ import com.andrew.java.library.base.AndrewActivityDataBindingLoading;
 import com.andrew.java.library.model.AndrewResponse;
 import com.example.demojava.databinding.MainActivityBinding;
 import com.example.demojava.model.AppUpdate;
+import com.orhanobut.logger.Logger;
 
 public class MainActivity extends AndrewActivityDataBindingLoading<MainActivityBinding, MainVM> {
 
@@ -20,6 +21,7 @@ public class MainActivity extends AndrewActivityDataBindingLoading<MainActivityB
 
     @Override
     protected void initAndBindingVm() {
+        Logger.e("test2222222");
         mLoadingVm = getActivityScopeViewModel(MainVM.class);
         bindingView.setVm(mLoadingVm);
         TestVM testVM = getActivityScopeViewModel(TestVM.class);
