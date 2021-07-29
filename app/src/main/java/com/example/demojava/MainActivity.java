@@ -22,6 +22,7 @@ public class MainActivity extends AndrewActivityDataBindingLoading<MainActivityB
     @Override
     protected void initAndBindingVm() {
         Logger.e("test2222222");
+        Logger.e("test222222233333333333333");
         mLoadingVm = getActivityScopeViewModel(MainVM.class);
         bindingView.setVm(mLoadingVm);
         TestVM testVM = getActivityScopeViewModel(TestVM.class);
