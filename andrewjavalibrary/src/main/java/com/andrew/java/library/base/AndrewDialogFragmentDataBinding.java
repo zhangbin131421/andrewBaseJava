@@ -109,11 +109,8 @@ public abstract class AndrewDialogFragmentDataBinding<BV extends ViewDataBinding
 //            attributes.gravity = Gravity.TOP;//对齐方式
 //            attributes.y = (int) DisplayUtil.dp2Px(getContext(), 100);//具体头部距离
 //            window.setAttributes(attributes);
-
-                assert window != null;
                 window.setLayout(width, height);
             }
-
         }
     }
 
