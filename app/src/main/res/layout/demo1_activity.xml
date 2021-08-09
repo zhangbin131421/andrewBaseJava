@@ -18,20 +18,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-        <ImageView
+
+        <Button
             android:id="@+id/image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:onClick="jump"
-            android:src="@mipmap/ic_launcher" />
-
-        <EditText
-            android:id="@+id/etv1"
             android:layout_width="match_parent"
-            android:cursorVisible="true"
             android:layout_height="wrap_content"
-            android:hint="1111" />
-
+            android:onClick="jump"
+            android:text="点击" />
 
     </LinearLayout>
 </layout>

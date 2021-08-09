@@ -1,9 +1,17 @@
 package com.example.demojava.ui;
 
+import android.content.Context;
+import android.hardware.display.DisplayManager;
+import android.os.Environment;
+import android.text.Editable;
 import android.text.InputType;
+import android.text.TextWatcher;
+import android.util.Log;
+import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
 import androidx.fragment.app.DialogFragment;
@@ -17,11 +25,14 @@ import com.andrew.java.library.model.AndrewResponse;
 import com.example.demojava.MainVM;
 import com.example.demojava.R;
 import com.example.demojava.TestVM;
+import com.example.demojava.base.BasePresentation;
 import com.example.demojava.databinding.TestActivityBinding;
 import com.example.demojava.model.AppUpdate;
 import com.example.demojava.ui.fragment.DemoFragmentDialog;
+import com.example.demojava.util.net.ScreenManager;
 import com.orhanobut.logger.Logger;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,55 +54,21 @@ public class TestActivity extends AndrewActivityDataBindingLoading<TestActivityB
 
     @Override
     protected void initView() {
-        mLoadingVm.refreshTrigger.postValue(true);
-        mLoadingVm.loading.postValue(true);
-//        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-
-        bindingView.recyclerView1.setLayoutManager(new LinearLayoutManager(this));
-
-        bindingView.recyclerView1.setAdapter(adapter1);
-
-        bindingView.recyclerView2.setLayoutManager(new LinearLayoutManager(this));
-        TestAdapter adapter2 = new TestAdapter(this);
-        bindingView.recyclerView2.setAdapter(adapter2);
 
 
-        List<String> list1 = new ArrayList<>();
-        List<String> list2 = new ArrayList<>();
-        for (int i = 0; i < 15; i++) {
-            list1.add("" + i);
-            list2.add("" + (i + 20));
-        }
-        adapter1.addAllNotify(list1, true);
-        adapter2.addAllNotify(list2, true);
 
-        bindingView.etv1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Logger.e("  onClick(MotionEvent event) ----------------1111111111111---------------");
-                bindingView.keyboard.setEditText(bindingView.etv1);
-            }
-        });
-        bindingView.etv2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Logger.e("  onClick(MotionEvent event) ----------------22222222222222---------------");
-
-                bindingView.keyboard.setEditText(bindingView.etv2);
-            }
-        });
-
-        bindingView.etv1.setOnTouchListener(new View.OnTouchListener() {
-            public boolean onTouch(View v, MotionEvent event) {
-                Logger.e("  onClick(MotionEvent event) ----------------333333333333333---------------");
-
-                int inType = bindingView.etv1.getInputType(); // backup the input type
-                bindingView.etv1.setInputType(InputType.TYPE_NULL); // disable soft input
-                bindingView.etv1.onTouchEvent(event); // call native handler
-                bindingView.etv1.setInputType(inType); // restore input type
-                return true;
-            }
-        });
+        bindingView.etv1.requestFocus();
+//        bindingView.etv1.setOnTouchListener(new View.OnTouchListener() {
+//            public boolean onTouch(View v, MotionEvent event) {
+//                Logger.e("  onClick(MotionEvent event) ----------------333333333333333---------------");
+//
+//                int inType = bindingView.etv1.getInputType(); // backup the input type
+//                bindingView.etv1.setInputType(InputType.TYPE_NULL); // disable soft input
+//                bindingView.etv1.onTouchEvent(event); // call native handler
+//                bindingView.etv1.setInputType(inType); // restore input type
+//                return true;
+//            }
+//        });
 //        bindingView.etv2.setOnTouchListener(new View.OnTouchListener() {
 //            public boolean onTouch(View v, MotionEvent event) {
 //                Logger.e("  onClick(MotionEvent event) ----------------44444444444444444---------------");
@@ -107,6 +84,7 @@ public class TestActivity extends AndrewActivityDataBindingLoading<TestActivityB
 
     @Override
     protected void initData() {
+        initPresentation();
         mLoadingVm.app.observe(this, new Observer<AndrewResponse<AppUpdate>>() {
             @Override
             public void onChanged(AndrewResponse<AppUpdate> appUpdateAndrewResponse) {
@@ -147,4 +125,75 @@ public class TestActivity extends AndrewActivityDataBindingLoading<TestActivityB
                     .addToBackStack(null).commit();
         }
     }
+
+    /**
+     * 禁止Edittext弹出软件盘，光标依然正常显示。
+     */
+    public void disableShowSoftInput() {
+        if (android.os.Build.VERSION.SDK_INT <= 10) {
+            bindingView.etv1.setInputType(InputType.TYPE_NULL);
+        } else {
+            Class<EditText> cls = EditText.class;
+            Method method;
+            try {
+                method = cls.getMethod("setShowSoftInputOnFocus", boolean.class);
+                method.setAccessible(true);
+                method.invoke(bindingView.etv1, false);
+            } catch (Exception e) {
+            }
+        }
+        bindingView.etv1.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+                Logger.e("sss="+s.toString());
+                Logger.e("sss ="+s.length());
+                bindingView.etv1.setSelection(bindingView.etv1.length());
+            }
+        });
+
+
+    }
+
+
+    /**  屏幕管理器 **/
+    private DisplayManager mDisplayManager;
+    /**  屏幕数组 **/
+    private Display[] displays;
+    /** 初始化第二块屏幕 **/
+
+    private ScreenManager screenManager = ScreenManager.getInstance();
+
+    private void initPresentation(){
+//        screenManager.init(this);
+//        Display[] displays = screenManager.getDisplays();
+//        Logger.e( "屏幕数量" + displays.length);
+//        for (int i = 0; i < displays.length; i++) {
+//            Logger.e( "屏幕" + displays[i]);
+//        }
+//        Display display = screenManager.getPresentationDisplays();
+//        if (display != null) {
+//            TextDisplay  textDisplay = new TextDisplay(this, displays[1]);
+//            textDisplay.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
+//            textDisplay.show();
+//        }
+
+        DisplayManager mDisplayManager; // 屏幕管理类
+        mDisplayManager = (DisplayManager)  this
+                .getSystemService(Context.DISPLAY_SERVICE);
+        Display[] displays = mDisplayManager.getDisplays();
+
+            TextDisplay  mPresentation =  new  TextDisplay( this , displays[displays.length - 1]); // displays[1]是副屏
+
+            mPresentation.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
+            mPresentation.show();
+
+    }
+
+
 }

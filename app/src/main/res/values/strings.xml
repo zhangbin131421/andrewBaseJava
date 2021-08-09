@@ -1,3 +1,56 @@
 <resources>
     <string name="app_name">Demo Java Application</string>
+
+
+    <!--paydialog-->
+    <string name="pay_money">现金</string>
+    <string name="pay_ali_wx">微信/支付宝</string>
+    <string name="pay_face">人脸支付</string>
+    <string name="pay_code">扫码支付</string>
+    <string name="pay_unipay_code">银联支付</string>
+    <string name="pay_face_tips">请将面部靠近摄像头识别范围，开始付款 </string>
+    <string name="pay_face_tips_pay">温馨提示：人脸支付为真实定额扣款</string>
+    <string name="pay_noface">暂未发现可用的外置设备</string>
+    <string name="pay_noface_change">请检查连接并重启应用后重试，或选用其他支付方式</string>
+    <string name="pay_fail_tips">请重新付款或选择其他方式 </string>
+    <string name="pay_need_money">需收款：</string>
+    <string name="pay_give_money">需付款：</string>
+    <string name="pay_confirm">确认已收款</string>
+    <string name="pay_confirm_true">已收款：</string>
+    <string name="pay_pay_true">已付款：</string>
+    <string name="pay_paying">支付中...</string>
+    <string name="pay_repay">重新支付</string>
+    <string name="pay_get_moeny">开始付款</string>
+    <string name="pay_fail">支付失败！</string>
+    <string name="pay_pay_moeny">支付金额：</string>
+    <string name="pay_total_moeny">总金额：</string>
+    <string name="pay_thank_you">感谢您的惠顾！</string>
+    <string name="pay_paying_wait">正在支付，请稍候</string>
+    <string name="pay_again">重试</string>
+    <string name="pay_by_other">其他付款方式</string>
+
+
+    <!--提示用语-->
+    <string name="tips_fruit_apple">请将苹果放到电子秤上</string>
+    <string name="tips_fruit_pear">请将梨子放到电子秤上</string>
+    <string name="tips_fruit_banana">请将香蕉放到电子秤上</string>
+    <string name="tips_fruit_pitaya">请将火龙果放到电子秤上</string>
+    <string name="tips_fruit_please">请将</string>
+    <string name="tips_fruit_put">放到电子秤上</string>
+    <string name="tips_pay_money">请收取顾客的现金</string>
+    <string name="tips_pay_qrcode">请扫描顾客的收款码,完成收款</string>
+    <string name="tips_bye">客官您慢走</string>
+    <string name="tips_bye_again">欢迎下次光临</string>
+    <string name="tips_cancel">取消</string>
+    <string name="tips_confirm">完成</string>
+    <string name="tips_yes">确定</string>
+    <string name="tips_success">成功</string>
+    <string name="tips_fail">失败</string>
+    <string name="tips_net_fail">网络连接失败</string>
+    <string name="tips_exit">再按一次退出</string>
+    <string name="tips_pay_real">(人脸支付，扣款0.01元)</string>
+    <string name="tips_no_find_smile_title">暂未发现可用的刷脸服务</string>
+    <string name="tips_find_smile_content">该功能现仅供内部演示使用，如需开通，请联系商米销售团队，或使用商米收银台</string>
+
+
 </resources>
