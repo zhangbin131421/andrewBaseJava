@@ -212,13 +212,54 @@ public class PageAdapter extends AndrewRecyclerViewAdapterBinding<Integer> {
         }
     }
 
-    private void click(){
+    private void click(int tag) {
+        int maxValue = arrayList.get(arrayList.size() - 1);
         if (arrayList.size() > getItemCount()) {
+            if (getItemCount() == 9) {
+                if (tag > 4 && tag < (maxValue - 3)) {
+                } else {
+                    if (tag >= (maxValue - 3)) {
+                        tempValue = maxValue;
+                    }
+                    maxItem = 8;
+                }
+            } else {
+                if (tag < 5) {
+                    tempValue = 0;
+                } else {
+                    if (tag < 8) {
+                        maxItem = 9;
+                        tempValue = clickTag - tag;
+                    } else {
+                        if (maxValue - tag > 3) {
+                            if (tag != maxValue) {
+                                maxItem = 9;
+                            }
+                            tempValue = clickTag - tag;
+                        } else {
+                            tempValue = maxValue;
+                        }
+                    }
+                }
+            }
+        }
+        clickTag = tag;
+        notifyDataSetChanged();
+    }
 
-        }else {
-
+    public void lastPage() {
+        if (clickTag != 1) {
+            int tag = clickTag - 1;
+            click(tag);
         }
 
+    }
+
+    public void nextPage() {
+        if (clickTag != arrayList.get(arrayList.size() - 1)) {
+            int tag = clickTag + 1;
+            click(tag);
+        }
     }
 
 }

@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Demo1Activity extends AndrewActivityDataBindingLoading<Demo1ActivityBinding, MainVM> {
+    PageAdapter pageAdapter = new PageAdapter(this);
 
     @Override
     protected int layoutId() {
@@ -39,10 +40,9 @@ public class Demo1Activity extends AndrewActivityDataBindingLoading<Demo1Activit
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
         bindingView.recyclerviewPage.setLayoutManager(linearLayoutManager);
         bindingView.recyclerviewPage.addItemDecoration(new SpacesItemDecoration(10));
-        PageAdapter pageAdapter = new PageAdapter(this);
         bindingView.recyclerviewPage.setAdapter(pageAdapter);
         List<Integer> list = new ArrayList<>();
-        for (int i = 1; i <= 20; i++) {
+        for (int i = 1; i <= 5; i++) {
             list.add(i);
         }
         pageAdapter.addAllNotify(list, true);
@@ -50,6 +50,19 @@ public class Demo1Activity extends AndrewActivityDataBindingLoading<Demo1Activit
 
     @Override
     protected void initData() {
+        bindingView.image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pageAdapter.lastPage();
+            }
+        });
+
+        bindingView.btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pageAdapter.nextPage();
+            }
+        });
     }
 
     public void jump(View view) {
