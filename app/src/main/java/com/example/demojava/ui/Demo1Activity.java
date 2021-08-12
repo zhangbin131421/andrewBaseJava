@@ -4,13 +4,20 @@ import android.view.View;
 
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.andrew.java.library.base.AndrewActivityDataBindingLoading;
 import com.example.demojava.MainVM;
 import com.example.demojava.R;
 import com.example.demojava.TestVM;
 import com.example.demojava.databinding.Demo1ActivityBinding;
+import com.example.demojava.ui.adapter.PageAdapter;
+import com.example.demojava.ui.adapter.SpacesItemDecoration;
 import com.example.demojava.ui.fragment.DemoFragmentDialog;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Demo1Activity extends AndrewActivityDataBindingLoading<Demo1ActivityBinding, MainVM> {
 
@@ -29,6 +36,16 @@ public class Demo1Activity extends AndrewActivityDataBindingLoading<Demo1Activit
 
     @Override
     protected void initView() {
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
+        bindingView.recyclerviewPage.setLayoutManager(linearLayoutManager);
+        bindingView.recyclerviewPage.addItemDecoration(new SpacesItemDecoration(10));
+        PageAdapter pageAdapter = new PageAdapter(this);
+        bindingView.recyclerviewPage.setAdapter(pageAdapter);
+        List<Integer> list = new ArrayList<>();
+        for (int i = 1; i <= 20; i++) {
+            list.add(i);
+        }
+        pageAdapter.addAllNotify(list, true);
     }
 
     @Override

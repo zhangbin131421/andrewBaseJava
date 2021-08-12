@@ -34,11 +34,4 @@ public abstract class AndrewFragmentDataBindingLoading<BV extends ViewDataBindin
 
     }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        if (bindingView != null) {
-            bindingView.unbind();
-        }
-    }
 }
