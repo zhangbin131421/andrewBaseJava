@@ -48,4 +48,8 @@ dependencies {
     implementation project(path: ':andrewjavalibrary')
 //    implementation 'com.github.zhangbin131421:andrewBase:v1.0'
 
+    //https://github.com/JessYanCoding/AndroidAutoSize/blob/master/README-zh.md
+    implementation 'com.github.JessYanCoding:AndroidAutoSize:v1.2.1'
+
+
 }
