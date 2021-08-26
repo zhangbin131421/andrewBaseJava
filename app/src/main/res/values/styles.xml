@@ -10,6 +10,7 @@
         <item name="windowNoTitle">true</item>
         <item name="android:screenOrientation">portrait</item>
     </style>
+
     <style name="TextStyleNumberItem">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">0dp</item>
@@ -36,5 +37,14 @@
         <item name="android:windowBackground">@android:color/white</item>
         <item name="android:textColor">@android:color/black</item>
         <item name="android:windowFullscreen">true</item>
+        <item name="android:windowAnimationStyle">@style/MyWindowAnimation</item>
+    </style>
+
+    <!--    进入和退出的动画命名-->
+    <style name="MyWindowAnimation">
+        <item name="android:windowShowAnimation">@anim/slide_in_right</item>
+        <item name="android:windowHideAnimation">@anim/slide_out_right</item>
+        <item name="android:windowEnterAnimation">@anim/slide_in_right</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_right</item>
     </style>
 </resources>

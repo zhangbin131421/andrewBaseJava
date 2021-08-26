@@ -5,10 +5,12 @@ import android.app.Application;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.WindowManager;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,8 +22,6 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelStoreOwner;
-
-import com.orhanobut.logger.Logger;
 
 /**
  * author: zhangbin
@@ -91,7 +91,6 @@ public abstract class AndrewDialogFragmentDataBinding<BV extends ViewDataBinding
             int width = getResources().getDisplayMetrics().widthPixels;
             int height = getResources().getDisplayMetrics().heightPixels;
             float widthPercent = getWidthPercent();
-            Logger.e("w=" + widthPercent);
             float heightPercent = getHeightPercent();
             if (widthPercent == 0) {
                 width = ViewGroup.LayoutParams.MATCH_PARENT;
@@ -105,10 +104,10 @@ public abstract class AndrewDialogFragmentDataBinding<BV extends ViewDataBinding
             }
             Window window = dialog.getWindow();
             if (window != null) {
-//            WindowManager.LayoutParams attributes = window.getAttributes();
-//            attributes.gravity = Gravity.TOP;//对齐方式
-//            attributes.y = (int) DisplayUtil.dp2Px(getContext(), 100);//具体头部距离
-//            window.setAttributes(attributes);
+                WindowManager.LayoutParams attributes = window.getAttributes();
+                attributes.gravity = getDialogGravity();//对齐方式
+//                attributes.y = (int) DisplayUtil.dp2Px(getContext(), 100);//具体头部距离
+                window.setAttributes(attributes);
                 window.setLayout(width, height);
             }
         }
@@ -163,6 +162,10 @@ public abstract class AndrewDialogFragmentDataBinding<BV extends ViewDataBinding
         if (activity == null) {
             throw new IllegalStateException("Can't create ViewModelProvider for detached fragment");
         }
+    }
+
+    public int getDialogGravity() {
+        return Gravity.CENTER;
     }
 
     public float getWidthPercent() {
