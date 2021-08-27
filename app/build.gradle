@@ -50,6 +50,7 @@ dependencies {
 
     //https://github.com/JessYanCoding/AndroidAutoSize/blob/master/README-zh.md
     implementation 'com.github.JessYanCoding:AndroidAutoSize:v1.2.1'
-
+    //https://github.com/Bigkoo/Android-PickerView
+    implementation 'com.contrarywind:Android-PickerView:4.1.9'
 
 }
