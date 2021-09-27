@@ -48,6 +48,15 @@ public class SpUtil {
         return mmkv.decodeInt(key, 0);
     }
 
+    public void putLong(String key, long value) {
+        mmkv.encode(key, value);
+    }
+
+    public long getLong(String key) {
+        return mmkv.decodeLong(key, 0);
+    }
+
+
     public void putFloat(String key, float value) {
         mmkv.encode(key, value);
     }

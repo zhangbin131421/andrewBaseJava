@@ -5,6 +5,6 @@ package com.andrew.java.library.listener;
  * created on: 2021/6/29 14:49
  * description:
  */
-public interface MyOnClickPositionListener<T> {
+public interface AndrewClickPositionListener<T> {
     void onClick(T t, int position);
 }

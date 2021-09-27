@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.andrew.java.library.listener.MyOnClickListener;
+import com.andrew.java.library.listener.AndrewClickListener;
 import com.orhanobut.logger.Logger;
 
 import java.util.ArrayList;
@@ -34,8 +34,8 @@ public abstract class AndrewRecyclerViewAdapter<T> extends RecyclerView.Adapter<
     protected List<T> arrayList = new ArrayList<>();
     protected int clickPosition = -1;
 
-    private MyOnClickListener<T> mItemClickListener;
-    private MyOnClickListener<T> mItemLongClickListener;
+    private AndrewClickListener<T> mItemClickListener;
+    private AndrewClickListener<T> mItemLongClickListener;
 
     public AndrewRecyclerViewAdapter(Context context) {
         mContext = context;
@@ -171,11 +171,11 @@ public abstract class AndrewRecyclerViewAdapter<T> extends RecyclerView.Adapter<
         mNotifyDataSetChanged();
     }
 
-    public void setItemClickListener(MyOnClickListener<T> mItemClickListener) {
+    public void setItemClickListener(AndrewClickListener<T> mItemClickListener) {
         this.mItemClickListener = mItemClickListener;
     }
 
-    public void setItemLongClickListener(MyOnClickListener<T> mItemLongClickListener) {
+    public void setItemLongClickListener(AndrewClickListener<T> mItemLongClickListener) {
         this.mItemLongClickListener = mItemLongClickListener;
     }
 }
